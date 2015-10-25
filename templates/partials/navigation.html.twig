@@ -1,0 +1,11 @@
+<nav id="menu">
+    <div class="inner">
+        <h2>{{ site.header.menu_name }}</h2>
+        <ul class="links">
+            {% for page in pages.children %}
+            <li><a href="{{ page.url }}">{{ page.menu }}</a></li>
+            {% endfor %}
+        </ul>
+        <a href="#" class="close">Close</a>
+    </div>
+</nav>

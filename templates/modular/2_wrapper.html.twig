@@ -1,0 +1,27 @@
+<!-- Wrapper -->
+<section id="wrapper">
+{% for name, section in page.header.sections %}
+    {% if (section.type == 'section1') %}
+    <section id="{{ name }}" class="wrapper spotlight {{ section.style }} {{ cycle(['alt',''],loop.index) }}">
+        <div class="inner">
+            <a href="#" class="image">{{ page.media.images[section.image] }}</a>
+            <div class="content">
+                <h2>{{ section.title }}</h2>
+                {{ section.body|markdown }}
+                <a href="{{ section.button_url }}" class="special">{{ section.button_caption }}</a>
+            </div>
+        </div>
+    </section> 
+    {% elseif (section.type == 'section2') %}
+    <section id="four" class="wrapper {{ section.style }} {{ cycle(['alt',''],loop.index) }}">
+        <div class="inner">
+            {{ section.text|markdown }}
+            {% include 'partials/features.html.twig' with { 'features': section.features } %}
+            <ul class="actions">
+                <li><a href="{{ section.button_url }}" class="button">{{ section.button_caption }}</a></li>
+            </ul>
+        </div>
+    </section>
+    {% endif %}
+{% endfor %}
+</section>

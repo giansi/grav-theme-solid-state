@@ -1,0 +1,20 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+<section id="wrapper">
+    <header>
+        <div class="inner">
+            <h2>{{ page.header.title }}</h2>
+            {{ page.header.subtitle|markdown }}
+        </div>
+    </header>
+
+    <!-- Content -->
+    <div class="wrapper">
+        <div class="inner">
+            {{ page.content }}
+            {% include 'partials/features.html.twig' with { 'features': page.header.features } %}
+        </div>
+    </div>
+</section>
+{% endblock %}

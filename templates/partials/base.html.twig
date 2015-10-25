@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<!--
+	Solid State by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+        <title>Solid State by HTML5 UP</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        {% block stylesheets %}
+        {% if browser.getBrowser == 'msie' and browser.getVersion == 8 %}
+            {% do assets.addJs('theme://assets/js/ie/html5shiv.js') %}
+        {% endif %}
+        
+        {% do assets.addCss('theme://assets/css/main.css', 103) %}
+        {% if browser.getBrowser == 'msie' and browser.getVersion == 8 %}
+            {% do assets.addCss('theme://assets/css/ie8.css') %}
+        {% endif %}
+        {% if browser.getBrowser == 'msie' and browser.getVersion == 9 %}
+            {% do assets.addCss('theme://assets/css/ie9.css') %}
+        {% endif %}
+    {% endblock %}
+    {{ assets.css() }} 
+        <style>
+            {% if page.media.images|length > 0 %}
+            body{
+                background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("{{ page.media.images[page.header.background_image].url }}");
+            }
+            
+            @media screen and (max-width: 1280px) {
+                #banner {
+                    background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("{{ page.media.images[page.header.background_image].url }}");
+                }
+            }
+            
+            @media screen and (max-width: 1280px) {
+
+		#wrapper > header {
+                    background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("{{ page.media.images[page.header.background_image].url }}");
+		}
+
+	}
+            
+            {% endif %}
+        </style>
+    </head>
+    <body>
+        <!-- Page Wrapper -->
+        <div id="page-wrapper">          
+            {% include 'partials/header.html.twig' %}         
+            {% include 'partials/navigation.html.twig' %}
+
+            {% block content %}
+            {% endblock %}
+
+            {% include 'partials/footer.html.twig' %}
+        </div>
+        
+        <!-- Scripts -->
+        {% do assets.addJs('theme://assets/js/skel.min.js') %}
+        {% do assets.addJs('theme://assets/js/jquery.min.js') %}
+        {% do assets.addJs('theme://assets/js/jquery.scrollex.min.js') %}
+        {% do assets.addJs('theme://assets/js/util.js') %}
+        {% do assets.addJs('theme://assets/js/main.js') %}
+        {{ assets.js() }}
+
+    </body>
+</html>

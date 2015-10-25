@@ -1,0 +1,12 @@
+{% if features|length > 0 %}
+<section class="features">
+    {% for feature in features %}
+        <article>
+            <a href="#" class="image">{{ page.media.images[feature.image] }}</a>
+            <h3>{{ feature.title }}</h3>
+            {{ feature.body|markdown }}
+            <a href="{{ feature.button_url }}" class="special">{{ feature.button_caption }}</a>
+        </article>
+    {% endfor %}            
+</section>
+{% endif %}    
