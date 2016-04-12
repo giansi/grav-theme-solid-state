@@ -1,3 +1,9 @@
+# v1.0.2
+## 04/12/2016
+
+1. [](#improved)
+    * Updated fontawesome
+
 # v1.0.1
 ## 02/05/2016
 
